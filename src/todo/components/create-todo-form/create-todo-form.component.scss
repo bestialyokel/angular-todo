@@ -1,0 +1,30 @@
+
+
+.create-todo {
+    text-align: center;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.controls .mat-button-base+.mat-button-base,
+.controls button {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.button-cancel {
+    background: gray;
+}
+
+.button-wrapper {
+    flex: 0 1 50%;
+}
+
+.controls {
+    display: flex
+}

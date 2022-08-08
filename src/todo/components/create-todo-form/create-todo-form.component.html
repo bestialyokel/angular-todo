@@ -1,0 +1,34 @@
+<div class="create-todo">
+    <div mat-dialog-title>Новая задача</div>
+    <mat-divider></mat-divider>
+    <div mat-dialog-content>
+        <form class="create-form" [formGroup]="createTodoForm" (submit)="onSubmit()">
+            <mat-form-field appearance="fill">
+                <input type="text" id="text" formControlName="text" matInput placeholder="Название задачи">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Категория</mat-label>
+                <mat-select type="text" id="categoryName" formControlName="categoryName">
+                    <mat-option [value]="NEW_CATEGORY">Новая категория</mat-option>
+                    <mat-option
+                        *ngFor="let category of categories | async"
+                        [value]="category.title"
+                    >
+                        {{category.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="categoryInputVisible()" appearance="fill">
+                <input type="text" id="categoryNameInput" formControlName="categoryNameInput" matInput placeholder="Название категории">
+            </mat-form-field>
+            <div class="controls">
+                <div class="button-wrapper">
+                    <button class="button-cancel" mat-dialog-close mat-flat-button>ОТМЕНА</button>
+                </div>
+                <div class="button-wrapper">
+                    <button class="button-submit" type="submit" mat-dialog-close mat-flat-button color="primary">ОК</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="category-card-wrapper">
+    <div class="category-card">
+        <mat-card>
+            <mat-card-title>{{category.title}}</mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <mat-selection-list 
+                    (selectionChange)="onSelect($event)"
+                    [compareWith]="compareWith">
+                    <mat-list-option 
+                        *ngFor="let todo of category.todos"
+                        checkboxPosition="before"
+                        [selected]="todo.completed"
+                        [value]="todo.id"
+                    >
+                      <span class="todo-text"
+                        [ngClass]="{completed: todo.completed}">
+                        {{todo.text}}
+                      </span>
+                    </mat-list-option>
+                </mat-selection-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

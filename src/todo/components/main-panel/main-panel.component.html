@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <div class="panel-title">Задачи</div>
+    <div class="panel-controls">
+        <button (click)="openCreateDialog()" mat-mini-fab color="primary">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>
+
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let category of categories | async" >
+        <app-category-card 
+            [category]="category">
+        </app-category-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
